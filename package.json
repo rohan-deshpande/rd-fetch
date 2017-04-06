@@ -19,7 +19,9 @@
     "chai": "3.4.1",
     "eslint": "^3.19.0",
     "eslint-loader": "1.6.1",
+    "json-server": "^0.9.6",
     "mocha": "2.3.4",
+    "node-fetch": "^1.6.3",
     "webpack": "2.2.1",
     "yargs": "6.6.0"
   },

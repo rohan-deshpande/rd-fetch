@@ -7,7 +7,11 @@ export const DEFAULTS = {
 };
 
 export default function json(url, options) {
-  return fetch(url, options)
+  return fetch(url, {
+    method: options.method.toUpperCase() || DEFAULTS.method,
+    headers: options.headers || DEFAULTS.headers,
+    body: options.body || DEFAULTS.body
+  })
     .then((response) => {
       const contentType = response.headers.get('Content-Type');
 
