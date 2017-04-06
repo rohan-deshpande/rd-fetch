@@ -6,7 +6,7 @@ export const DEFAULTS = {
   body: null,
 };
 
-export default function json(url, options) {
+export function json(url, options) {
   return fetch(url, {
     method: options.method.toUpperCase() || DEFAULTS.method,
     headers: options.headers || DEFAULTS.headers,

@@ -90,7 +90,7 @@ exports.DEFAULTS = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-exports.default = json;
+exports.json = json;
 
 var _utils = __webpack_require__(1);
 
@@ -181,7 +181,10 @@ var Fetch = function () {
     value: function json(url) {
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _json.DEFAULTS;
 
-      return (0, _json.fetchJson)(url, options);
+      if (!url) {
+        throw new Error('You must provide a url resource to fetch');
+      }
+      return (0, _json.json)(url, options);
     }
   }]);
 

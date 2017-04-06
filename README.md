@@ -67,7 +67,7 @@ function auth() {
 		})
 		.catch((response) => {
 			if (response.status === 401) {
-				console.error()
+				
 			}
 		})
 }
