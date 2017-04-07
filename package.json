@@ -41,5 +41,8 @@
     "url": "https://github.com/krasimir/webpack-library-starter/issues"
   },
   "homepage": "https://github.com/krasimir/webpack-library-starter",
-  "dependencies": {}
+  "dependencies": {
+    "install": "^0.8.8",
+    "npm": "^4.4.4"
+  }
 }

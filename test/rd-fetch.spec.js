@@ -1,18 +1,27 @@
-/*global describe, it, before */
+/*global describe, it, before, after */
 
 import chai from 'chai';
-import fetch from 'node-fetch';
 import Fetch from '../dist/rd-fetch.js';
 
 chai.expect();
 
+global.fetch = require('node-fetch');
+
 const expect = chai.expect;
 const assert = chai.assert;
+const path  = require('path');
 const jsonServer = require('json-server');
-const app = jsonServer.create();
+const router = jsonServer.router(path.join(__dirname, 'db.json'));
+const middlewares = jsonServer.defaults();
+const server = jsonServer.create();
+const protocol = 'http';
+const host = 'localhost';
 const port = 3000;
-const endpoint = 'http://localhost:3000';
-let server;
+const endpoint = `${protocol}://${host}:${port}`;
+
+server.use(middlewares);
+server.use(router);
+server.listen(port);
 
 describe('Fetch',  () => {
   it('should have the static json method', (done) => {
@@ -29,15 +38,14 @@ describe('Fetch.json()', () => {
 });
 
 describe('GET', () => {
-  server = app.listen(port);
-  it('should have respons.ok === true', (done) => {
-    Fetch.json(`${endpoint}/posts/1`)
+  it('should have response.ok === true', (done) => {
+    Fetch.json(`${endpoint}/posts/1`, {method: 'GET'})
       .then((response) => {
         expect(response.ok).to.be.true;
-      }).catch(() => {
-
+        done();
+      }).catch((e) => {
+        console.log(e);
+        done();
       });
-
-    server.close(done);
   });
 });
