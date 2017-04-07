@@ -19,9 +19,11 @@ const host = 'localhost';
 const port = 3000;
 const endpoint = `${protocol}://${host}:${port}`;
 
-server.use(middlewares);
-server.use(router);
-server.listen(port);
+function setupServer(middlewares) {
+  server.use(router);
+  server.use(middlewares);
+  server.listen(port);
+}
 
 describe('Fetch',  () => {
   it('should have the static json method', (done) => {
@@ -38,14 +40,53 @@ describe('Fetch.json()', () => {
 });
 
 describe('GET', () => {
+  before(() => {
+    setupServer(middlewares);
+  });
   it('should have response.ok === true', (done) => {
-    Fetch.json(`${endpoint}/posts/1`, {method: 'GET'})
+    Fetch.json(`${endpoint}/posts/1`)
       .then((response) => {
         expect(response.ok).to.be.true;
+        expect(response.json).to.not.be.null;
         done();
-      }).catch((e) => {
-        console.log(e);
+      }).catch((error) => {
+        done(error);
+      });
+  });
+});
+
+describe('GET', () => {
+  it('should have response.json and it should not be null', (done) => {
+    Fetch.json(`${endpoint}/posts/1`)
+      .then((response) => {
+        expect(response.json).to.not.be.null;
         done();
+      }).catch((error) => {
+        done(error);
+      });
+  });
+});
+
+describe('GET', () => {
+  it('should be chainable', (done) => {
+    let chainable = function() {
+      return Fetch.json(`${endpoint}/posts/1`)
+      .then((response) => {
+        expect(response.json).to.not.be.null;
+        return Promise.resolve(response);
+      })
+      .catch((error) => {
+        done(error);
+      });
+    };
+
+    chainable()
+      .then((response) => {
+        expect(response.json).to.not.be.null;
+        done();
+      })
+      .catch((error) => {
+        done(error);
       });
   });
 });
