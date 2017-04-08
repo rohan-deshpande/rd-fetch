@@ -170,7 +170,7 @@ describe('Handle 401 Unauthorized', () => {
   });
 });
 
-describe('Handle POST requests', () => {
+describe('Handle Sending JSON', () => {
   const body = { 'hello': 'world' };
 
   it('should return what was sent to confirm it was posted correctly', (done) => {
