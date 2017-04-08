@@ -4,7 +4,9 @@
 
 ## What this do?
 
-When trying to migrate across from ajax, I found the way fetch handled http response codes to be a bit confusing, especially for errors. I found it doubly confusing trying to handle json response payloads for errors. So I made this wrapper.
+When trying to migrate across from ajax, I found the way fetch handled HTTP response codes to be a bit confusing, especially for what would usually be considered errors. I found it doubly confusing trying to handle json response payloads for errors. So I made this wrapper to make things a little more convenient.
+
+Currently this only really supports JSON, but there's no reason it couldn't support other data/content types as well.
 
 ## Installation
 
@@ -28,10 +30,9 @@ import Fetch from 'rd-fetch';
 
 Then call the static method you need passing the required arguments to send your request.
 
+### Methods
 
-**Note!** `rd-fetch` currently only supports `json`.
-
-### JSON
+#### `Fetch.json`
 
 `Fetch.json` is a static method that will handle communicating with a resource via json. If the request status is ok, (ie., `response.ok`) you will be able to do what you want with the `response` in your `then`. If the request status is not ok, a rejected promise will be returned allowing you to catch the `response` payload in your `catch`. In both instances, the `response` will have a `json` property attached to it.
 
@@ -47,17 +48,22 @@ Fetch.json('https://example.com/api')
   });
 ```
 
-### Advanced Usage
+##### Advanced Usage
 
 Since fetch calls return promises, you can handle default and custom behaviour pretty nicely by wrapping a call to a `Fetch` static method in a function that returns it like so
 
 ```javascript
-const log = {
-    responses: [],
-    errors: []
-};
+const log = { responses: [], errors: [] };
 let user;
 
+/**
+ * General use request method. Pushes responses/errors into a log.
+ * Always returns a promise.
+ *
+ * @param {string} url - the url to request
+ * @param {object} [options] - the options to pass to Fetch.json
+ * @return {object} Promise
+ */
 function request(url, options) {
   return Fetch.json(url, options)
     .then((response) => {
@@ -70,16 +76,24 @@ function request(url, options) {
 	});
 }
 
-request('https://example.com/api/login', {
+/**
+ * Logs the user in. Sets user data.
+ *
+ * @param {object} creds - user credentials
+ * @return void
+ */
+function login(creds) {
+  request('https://example.com/api/login', {
     method: 'POST',
     body: creds
-})
-  .then((response) => {
-    user = response.json;
   })
-  .catch((error) => {
-    console.log(error);
-  });
+    .then((response) => {
+      user = response.json;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 ```
 
 ## License
