@@ -1,6 +1,6 @@
 {
   "name": "rd-fetch",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A developer friendly fetch wrapper class",
   "main": "dist/rd-fetch.js",
   "scripts": {
@@ -25,22 +25,20 @@
     "webpack": "2.2.1",
     "yargs": "6.6.0"
   },
-  "repository": "''",
+  "repository": "https://github.com/rohan-deshpande/rd-fetch",
   "keywords": [
-    "webpack",
-    "es6",
-    "starter",
-    "library",
-    "universal",
-    "umd",
-    "commonjs"
+    "fetch",
+    "wrapper",
+    "json",
+    "class",
+    "promise"
   ],
   "author": "Rohan Deshpande",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krasimir/webpack-library-starter/issues"
+    "url": "https://github.com/rohan-deshpande/rd-fetch/issues"
   },
-  "homepage": "https://github.com/krasimir/webpack-library-starter",
+  "homepage": "https://github.com/rohan-deshpande/rd-fetch",
   "dependencies": {
     "install": "^0.8.8",
     "npm": "^4.4.4"
