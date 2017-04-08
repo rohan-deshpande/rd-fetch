@@ -104,7 +104,7 @@ function json(url, options) {
   return fetch(url, {
     method: options.method.toUpperCase() || DEFAULTS.method,
     headers: options.headers || DEFAULTS.headers,
-    body: options.body || DEFAULTS.body
+    body: options.body ? JSON.stringify(options.body) : DEFAULTS.body
   }).then(function (response) {
     var contentType = response.headers.get('Content-Type');
 
@@ -129,7 +129,6 @@ function json(url, options) {
     if ((typeof error === 'undefined' ? 'undefined' : _typeof(error)) !== 'object') {
       console.error(error);
     }
-
     return Promise.reject(error);
   });
 }

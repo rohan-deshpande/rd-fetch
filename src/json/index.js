@@ -10,7 +10,7 @@ export function json(url, options) {
   return fetch(url, {
     method: options.method.toUpperCase() || DEFAULTS.method,
     headers: options.headers || DEFAULTS.headers,
-    body: options.body || DEFAULTS.body
+    body: options.body ? JSON.stringify(options.body) : DEFAULTS.body
   })
     .then((response) => {
       const contentType = response.headers.get('Content-Type');
@@ -37,7 +37,6 @@ export function json(url, options) {
       if (typeof error !== 'object') {
         console.error(error);
       }
-
       return Promise.reject(error);
     });
 }
