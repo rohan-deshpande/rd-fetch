@@ -88,7 +88,7 @@ request('https://example.com/api/login', {
 
 ## Credits
 
-`rd-fetch` was built by [@rohandeshpande](http://rohandeshpande.com) with
+`rd-fetch` was built by [rohan-deshpande](http://rohandeshpande.com) with
 
 * [Atom](https://atom.io)
 * [iTerm2](https://www.iterm2.com/)
