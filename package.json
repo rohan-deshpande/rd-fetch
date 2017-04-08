@@ -2,7 +2,7 @@
   "name": "rd-fetch",
   "version": "0.0.1",
   "description": "A developer friendly fetch wrapper class",
-  "main": "dist/index.js",
+  "main": "dist/rd-fetch.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
