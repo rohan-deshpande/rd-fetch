@@ -48,6 +48,32 @@ Fetch.json('https://example.com/api')
   });
 ```
 
+##### Arguments
+
+###### `url`
+
+The URL to fetch
+
+###### `options`
+
+The options to use with the fetch.
+
+###### `options.method`
+
+The method to use, defaults to `GET`.
+
+###### `options.headers`
+
+The headers to use, defaults to 
+
+```javascript
+{ 'Accept': 'application/json', 'Content-Type': 'application/json', }
+```
+
+###### `options.body`
+
+The body to send, defaults to `null`. `Fetch.json` will auto `JSON.stringify` this option so you should pass a standard JavaScript object for this option.
+
 ##### Advanced Usage
 
 Since fetch calls return promises, you can handle default and custom behaviour pretty nicely by wrapping a call to a `Fetch` static method in a function that returns it like so
