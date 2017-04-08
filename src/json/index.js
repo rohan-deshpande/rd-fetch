@@ -37,6 +37,7 @@ export function json(url, options) {
       if (typeof error !== 'object') {
         console.error(error);
       }
+
       return Promise.reject(error);
     });
 }

@@ -129,6 +129,7 @@ function json(url, options) {
     if ((typeof error === 'undefined' ? 'undefined' : _typeof(error)) !== 'object') {
       console.error(error);
     }
+
     return Promise.reject(error);
   });
 }
