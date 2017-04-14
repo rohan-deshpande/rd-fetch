@@ -1,6 +1,6 @@
 {
   "name": "rd-fetch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A developer friendly fetch wrapper class",
   "main": "dist/rd-fetch.js",
   "scripts": {
@@ -33,7 +33,11 @@
     "class",
     "promise"
   ],
-  "author": "Rohan Deshpande",
+  "author": {
+    "name": "Rohan Deshpande",
+    "email": "rohan@creativelifeform.com",
+    "url": "http://rohandeshpande.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rohan-deshpande/rd-fetch/issues"
