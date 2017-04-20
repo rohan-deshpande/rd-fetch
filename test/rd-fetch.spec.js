@@ -1,16 +1,16 @@
-/*global describe, it, before, after */
+/*global describe, it, before */
 
 import chai from 'chai';
 import Fetch from '../dist/rd-fetch.js';
 
 chai.expect();
 
-global.fetch = require('node-fetch');
+global.fetch = require('node-fetch'); // eslint-disable-line no-undef
 const expect = chai.expect;
 const assert = chai.assert;
-const path  = require('path');
-const jsonServer = require('json-server');
-const router = jsonServer.router(path.join(__dirname, 'db.json'));
+const path  = require('path'); // eslint-disable-line no-undef
+const jsonServer = require('json-server'); // eslint-disable-line no-undef
+const router = jsonServer.router(path.join(__dirname, 'db.json')); // eslint-disable-line no-undef
 const middlewares = jsonServer.defaults();
 const server = jsonServer.create();
 const protocol = 'http';

@@ -2,6 +2,8 @@
 
 > A developer friendly fetch wrapper class.
 
+[![Build Status](https://travis-ci.org/rohan-deshpande/rd-fetch.svg?branch=master)](https://travis-ci.org/rohan-deshpande/rd-fetch)
+
 ## What this do?
 
 When trying to migrate across from ajax, I found the way fetch handled HTTP response codes to be a bit confusing, especially for what would usually be considered errors. I found it doubly confusing trying to handle json response payloads for errors. So I made this wrapper to make things a little more convenient.
@@ -64,7 +66,7 @@ The method to use, defaults to `GET`.
 
 ###### `options.headers`
 
-The headers to use, defaults to 
+The headers to use, defaults to
 
 ```javascript
 { 'Accept': 'application/json', 'Content-Type': 'application/json', }
