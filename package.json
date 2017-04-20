@@ -1,6 +1,6 @@
 {
   "name": "rd-fetch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A developer friendly fetch wrapper class",
   "main": "dist/rd-fetch.js",
   "scripts": {
