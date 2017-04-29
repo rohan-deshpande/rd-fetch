@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("rd-fetch", [], factory);
+		define("Fetch", [], factory);
 	else if(typeof exports === 'object')
-		exports["rd-fetch"] = factory();
+		exports["Fetch"] = factory();
 	else
-		root["rd-fetch"] = factory();
+		root["Fetch"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
