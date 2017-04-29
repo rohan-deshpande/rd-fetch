@@ -29,3 +29,7 @@ node_modules
 # Remove some common IDE working directories
 .idea
 .vscode
+
+# Mac bs
+.DS_Store
+.DS_Store?

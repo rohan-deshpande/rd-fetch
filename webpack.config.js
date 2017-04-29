@@ -22,7 +22,7 @@ const config = {
   output: {
     path: __dirname + '/dist',
     filename: outputFile,
-    library: libraryName,
+    library: 'Fetch',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
