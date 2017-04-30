@@ -127,12 +127,14 @@ describe('Chain all the things', () => {
   });
 });
 
-describe('Catch Incorrect Response Headers', () => {
-  it('should throw a type error about response content-type', (done) => {
+describe('Handle Incorrect Response Headers', () => {
+  it('should continue even if wrong response content-type', (done) => {
     Fetch.json(`${endpoint}/wrong-response-headers`)
-      .catch((error) => {
-        assert.equal(error, 'TypeError: Content-Type of response is not application/json');
+      .then(() => {
         done();
+      })
+      .catch((error) => {
+        done(error);
       });
   });
 });

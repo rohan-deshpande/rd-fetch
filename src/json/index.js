@@ -13,12 +13,6 @@ export function json(url, options) {
     body: options.body ? JSON.stringify(options.body) : DEFAULTS.body
   })
     .then((response) => {
-      const contentType = response.headers.get('Content-Type');
-
-      if (contentType && contentType.indexOf('application/json') < 0) {
-        throw new TypeError('Content-Type of response is not application/json');
-      }
-
       if (response.ok) {
         return response.text().then((text) => {
           response.json = isJson(text) ? JSON.parse(text) : null;

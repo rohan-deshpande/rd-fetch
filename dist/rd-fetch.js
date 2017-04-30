@@ -106,12 +106,6 @@ function json(url, options) {
     headers: options.headers || DEFAULTS.headers,
     body: options.body ? JSON.stringify(options.body) : DEFAULTS.body
   }).then(function (response) {
-    var contentType = response.headers.get('Content-Type');
-
-    if (contentType && contentType.indexOf('application/json') < 0) {
-      throw new TypeError('Content-Type of response is not application/json');
-    }
-
     if (response.ok) {
       return response.text().then(function (text) {
         response.json = (0, _utils.isJson)(text) ? JSON.parse(text) : null;
