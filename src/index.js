@@ -1,7 +1,4 @@
-import {
-  json as fetchJson,
-  DEFAULTS as JSON_DEFAULTS
-} from './json';
+import { DEFAULTS as JSON_DEFAULTS, json as fetchJson } from './json';
 
 export default class Fetch {
   static json(url, options = JSON_DEFAULTS) {
